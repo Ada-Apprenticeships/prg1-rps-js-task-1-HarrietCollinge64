@@ -1,40 +1,18 @@
 function rockPaperScissors(player1, player2) {
-  const options = ['rock', 'paper', 'scissors', 'spock', 'lizard']
-  
+//Arrays of moves that each move can beat. 
+ const winners ={
+    rock: ['scissors', 'lizard'],
+    paper: ['rock', 'spock'],
+    scissors: ['paper', 'lizard'],
+    spock:  ['rock', 'scissors'],
+    lizard: ['spock', 'paper'],
+ }
 
-
-
- const result = player1 == player2 ? "draw" 
- : player1 == "rock" && player2 == "paper" ? "player2"
- : player1 == "rock" && player2 == "scissors" ? "player1"
- : player1 == "rock" && player2 == "lizard" ? "player1"
- : player1 == "rock" && player2 == "spock" ? "player2"
-
- : player1 == "paper" && player2 == "rock" ? "player1"
- : player1 == "paper" && player2 == "scissors" ? "player2"
- : player1 == "paper" && player2 == "lizard" ? "player2"
- : player1 == "paper" && player2 == "spock" ? "player1"
-
- : player1 == "scissors" && player2 == "rock" ? "player2"
- : player1 == "scissors" && player2 == "paper" ? "player1"
- : player1 == "scissors" && player2 == "lizard" ? "player1"
- : player1 == "scissors" && player2 == "spock" ? "player2"
-
- : player1 == "spock" && player2 == "rock" ? "player1"
- : player1 == "spock" && player2 == "scissors" ? "player1"
- : player1 == "spock" && player2 == "lizard" ? "player2"
- : player1 == "spock" && player2 == "paper" ? "player2"
-
- : player1 == "lizard" && player2 == "rock" ? "player2"
- : player1 == "lizard" && player2 == "scissors" ? "player2"
- : player1 == "lizard" && player2 == "paper" ? "player1"
- : player1 == "lizard" && player2 == "spock" ? "player1"
-
- : null
- return result
-
+// check for draw 
+if (player1 === player2) {return 'draw'}
+//checks if player2 is included in player1's array, returns player1 if true 
+return (winners[player1].includes(player2)) ? 'player1' : 'player2'
 }
-
 
 // Leave this code here for the automated tests
 module.exports = {
